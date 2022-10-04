@@ -5,19 +5,19 @@ import java.util.Scanner;
 public class main_program {
     public static int get_index(){
         Scanner num1 = new Scanner(System.in);
-            System.out.println("\nFollowing are the Operation, You can Perform: ");
-            System.out.println("**Press 1 for Airline Operation**");
-            System.out.println("**Press 2 for Airport Operation**");
-            System.out.println("**Press 3 for Flight Operation**");
-            System.out.println("**Press 4 for Connecting_flight Operation**");
-            System.out.println("**Press 5 for Employee Operation**");
-            System.out.println("**Press 6 for Passenger Operation**");
-            System.out.println("**Press 7 for Booking Operation**");
-            System.out.println("**Press 8 for Cancelling Operation**");
-            System.out.println("**Press 9 for Tickets Operation**");
-            System.out.println("**Press 0 for Exit **");
-            System.out.print("What do you want to perform: ");
-            return num1.nextByte();
+        System.out.println("\nFollowing are the Operation, You can Perform: ");
+        System.out.println("**Press 1 for Airline Operation**");
+        System.out.println("**Press 2 for Airport Operation**");
+        System.out.println("**Press 3 for Flight Operation**");
+        System.out.println("**Press 4 for Connecting_flight Operation**");
+        System.out.println("**Press 5 for Employee Operation**");
+        System.out.println("**Press 6 for Passenger Operation**");
+        System.out.println("**Press 7 for Booking Operation**");
+        System.out.println("**Press 8 for Cancelling Operation**");
+        System.out.println("**Press 9 for Tickets Operation**");
+        System.out.println("**Press 0 for Exit **");
+        System.out.print("What do you want to perform: ");
+        return num1.nextByte();
     }
     public static int get_number(){
         Scanner num = new Scanner(System.in);
