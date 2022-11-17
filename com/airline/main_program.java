@@ -282,30 +282,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arp-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(apcode == ap[mid].getIATA_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         ap[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(apcode < ap[mid].getIATA_code(){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -426,32 +402,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                        //     System.out.print("Enter Airline Code: ");
-                                        //     int arcode = sc.nextInt();
-                                        //     int beg, mid, end, pos=0;
-                                        //     beg = 0;
-                                        //     end = arl-1;
-                                        //     mid = (beg+end)/2;
-                                        //     while(beg<=end){
-                                        //         if(arcode == al[mid].getAR_code()){
-                                        //             System.out.println("---------- RECORD FOUND --------------");
-                                        //             System.out.print("Record Position is : ");
-                                        //             System.out.println(mid+1);
-                                        //             pos = 1;
-                                        //             al[mid].display();
-                                        //             break;
-                                        //         }
-                                        //         else if(arcode < al[mid].getAR_code()){
-                                        //             end = mid-1;
-                                        //             mid = (beg+end)/2;
-                                        //         }
-                                        //         else {
-                                        //             beg = mid+1;
-                                        //             mid = (beg+end)/2;
-                                        //         }
-                                        //     }
-                                        //     if(pos == 0)
-                                        //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -570,32 +520,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -726,32 +650,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -878,32 +776,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -1022,32 +894,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -1166,32 +1012,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
@@ -1318,32 +1138,6 @@ public class main_program {
                                             if(pos == 0){
                                                 System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                             }
-                                            // System.out.print("Enter Airline Code: ");
-                                            // int arcode = sc.nextInt();
-                                            // int beg, mid, end, pos=0;
-                                            // beg = 0;
-                                            // end = arl-1;
-                                            // mid = (beg+end)/2;
-                                            // while(beg<=end){
-                                            //     if(arcode == al[mid].getAR_code()){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(mid+1);
-                                            //         pos = 1;
-                                            //         al[mid].display();
-                                            //         break;
-                                            //     }
-                                            //     else if(arcode < al[mid].getAR_code()){
-                                            //         end = mid-1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            //     else {
-                                            //         beg = mid+1;
-                                            //         mid = (beg+end)/2;
-                                            //     }
-                                            // }
-                                            // if(pos == 0)
-                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
                                         }
                                     }
                                     case 5 -> {
