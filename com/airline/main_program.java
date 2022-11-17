@@ -25,6 +25,9 @@ public class main_program {
             System.out.println("**Press 1 for add record**");
             System.out.println("**Press 2 for delete record**");
             System.out.println("**Press 3 for display record**");
+            System.out.println("**Press 4 for Search record**");
+            System.out.println("**Press 5 for Sort record**");
+            System.out.println("**Press 6 for edit record**");
             System.out.println("**Press 0 for return to Main Menu**");
             System.out.print("What do you want to perform: ");
             return num.nextByte();
@@ -130,6 +133,49 @@ public class main_program {
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
+                                    case 4 -> {
+                                        //Search Record by binary Search
+                                        System.out.println("--------Searching Record from Airline--------");
+                                        if (al[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            System.out.print("Enter Airline Code: ");
+                                            int arcode = sc.nextInt();
+                                            int beg, mid, end, pos=0;
+                                            beg = 0;
+                                            end = arl-1;
+                                            mid = (beg+end)/2;
+                                            while(beg<=end){
+                                                if(arcode == al[mid].getAR_code()){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(mid+1);
+                                                    pos = 1;
+                                                    al[mid].display();
+                                                    break;
+                                                }
+                                                else if(arcode < al[mid].getAR_code()){
+                                                    end = mid-1;
+                                                    mid = (beg+end)/2;
+                                                }
+                                                else {
+                                                    beg = mid+1;
+                                                    mid = (beg+end)/2;
+                                                }
+                                            }
+                                            if(pos == 0)
+                                            System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Airline--------");
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Airline--------");
+                                    }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
                             }
@@ -207,6 +253,68 @@ public class main_program {
                                             airport.display();
                                             System.out.println("---------------------------------------------------");
                                         }
+                                    }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record From Airport--------");
+                                        if (ap[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter IATA Code: ");
+                                            String apcode = sc_ap.nextLine();
+                                            for (int i=0; i<ap.length; i++) {
+                                                if(ap[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(apcode.equals(ap[i].getIATA_code())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    ap[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arp-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(apcode == ap[mid].getIATA_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         ap[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(apcode < ap[mid].getIATA_code(){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record From Airport--------");
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record From Airport--------");
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -290,6 +398,72 @@ public class main_program {
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("---------Searching Record From Flights--------");
+                                        if (f[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Flight Code: ");
+                                            String fcode = sc_f.nextLine();
+                                            for (int i=0; i<f.length; i++) {
+                                                if(f[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(fcode.equals(f[i].getFlight_code())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    f[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                        //     System.out.print("Enter Airline Code: ");
+                                        //     int arcode = sc.nextInt();
+                                        //     int beg, mid, end, pos=0;
+                                        //     beg = 0;
+                                        //     end = arl-1;
+                                        //     mid = (beg+end)/2;
+                                        //     while(beg<=end){
+                                        //         if(arcode == al[mid].getAR_code()){
+                                        //             System.out.println("---------- RECORD FOUND --------------");
+                                        //             System.out.print("Record Position is : ");
+                                        //             System.out.println(mid+1);
+                                        //             pos = 1;
+                                        //             al[mid].display();
+                                        //             break;
+                                        //         }
+                                        //         else if(arcode < al[mid].getAR_code()){
+                                        //             end = mid-1;
+                                        //             mid = (beg+end)/2;
+                                        //         }
+                                        //         else {
+                                        //             beg = mid+1;
+                                        //             mid = (beg+end)/2;
+                                        //         }
+                                        //     }
+                                        //     if(pos == 0)
+                                        //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("---------Sorting Record From Flights--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("---------Editing Record From Flights--------");
+
+                                    }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
                             }
@@ -367,6 +541,72 @@ public class main_program {
                                             connecting_flight.display();
                                             System.out.println("---------------------------------------------------");
                                         }
+                                    }
+                                    case 4 -> {
+                                        //Search Record by lineear search
+                                        System.out.println("--------Searching Record from Connecting Flights--------");
+                                        if (cf[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Flight Code: ");
+                                            String cfcode = sc_cf.nextLine();
+                                            for (int i=0; i<cf.length; i++) {
+                                                if(cf[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(cfcode.equals(cf[i].getFlight_code())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    f[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Connecting Flights--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Connecting Flights--------");
+
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -458,6 +698,72 @@ public class main_program {
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record from Employee--------");
+                                        if (e[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter SSN : ");
+                                            String ecode = sc_e.nextLine();
+                                            for (int i=0; i<e.length; i++) {
+                                                if(e[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(ecode.equals(e[i].getSSN())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    e[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Employee--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Employee--------");
+
+                                    }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
                             }
@@ -544,6 +850,72 @@ public class main_program {
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record from Passenger--------");
+                                        if (p[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Passport Number: ");
+                                            String pcode = sc_p.nextLine();
+                                            for (int i=0; i<p.length; i++) {
+                                                if(p[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(pcode.equals(p[i].getPassport_no())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    p[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Passenger--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Passenger--------");
+
+                                    }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
                             }
@@ -622,6 +994,72 @@ public class main_program {
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record from Booking--------");
+                                        if (bk[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Book ID: ");
+                                            String bcode = sc_bk.nextLine();
+                                            for (int i=0; i<bk.length; i++) {
+                                                if(bk[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(bcode.equals(bk[i].getBook_id())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    bk[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Booking--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Booking--------");
+
+                                    }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
                             }
@@ -699,6 +1137,72 @@ public class main_program {
                                             cancelling.display();
                                             System.out.println("---------------------------------------------------");
                                         }
+                                    }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record from Cancelling--------");
+                                        if (cc[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Cancel ID: ");
+                                            String ccode = sc_cc.nextLine();
+                                            for (int i=0; i<cc.length; i++) {
+                                                if(cc[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(ccode.equals(cc[i].getCancel_id())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    cc[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Cancelling--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Cancelling--------");
+
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -785,6 +1289,72 @@ public class main_program {
                                             ticket.display();
                                             System.out.println("---------------------------------------------------");
                                         }
+                                    }
+                                    case 4 -> {
+                                        //Search Record by linear search
+                                        System.out.println("--------Searching Record from Ticket--------");
+                                        if (t[0] == null) {
+                                            System.out.println("...No Data Present in Record...");
+                                        }
+                                        else {
+                                            int pos=0;
+                                            System.out.print("Enter Ticket Number: ");
+                                            String tcode = sc_t.nextLine();
+                                            for (int i=0; i<t.length; i++) {
+                                                if(t[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(tcode.equals(t[i].getT_number())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    t[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Airline Code: ");
+                                            // int arcode = sc.nextInt();
+                                            // int beg, mid, end, pos=0;
+                                            // beg = 0;
+                                            // end = arl-1;
+                                            // mid = (beg+end)/2;
+                                            // while(beg<=end){
+                                            //     if(arcode == al[mid].getAR_code()){
+                                            //         System.out.println("---------- RECORD FOUND --------------");
+                                            //         System.out.print("Record Position is : ");
+                                            //         System.out.println(mid+1);
+                                            //         pos = 1;
+                                            //         al[mid].display();
+                                            //         break;
+                                            //     }
+                                            //     else if(arcode < al[mid].getAR_code()){
+                                            //         end = mid-1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            //     else {
+                                            //         beg = mid+1;
+                                            //         mid = (beg+end)/2;
+                                            //     }
+                                            // }
+                                            // if(pos == 0)
+                                            // System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                        }
+                                    }
+                                    case 5 -> {
+                                        //Sort Record
+                                        System.out.println("--------Sorting Record from Ticket--------");
+
+                                    }
+                                    case 6 -> {
+                                        //Edit Record
+                                        System.out.println("--------Editing Record from Ticket--------");
+
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
