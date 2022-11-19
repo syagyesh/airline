@@ -3,35 +3,6 @@ package com.airline;
 import java.util.Scanner;
 
 public class main_program {
-    public static int get_index(){
-        Scanner num1 = new Scanner(System.in);
-        System.out.println("\nFollowing are the Operation, You can Perform: ");
-        System.out.println("**Press 1 for Airline Operation**");
-        System.out.println("**Press 2 for Airport Operation**");
-        System.out.println("**Press 3 for Flight Operation**");
-        System.out.println("**Press 4 for Connecting_flight Operation**");
-        System.out.println("**Press 5 for Employee Operation**");
-        System.out.println("**Press 6 for Passenger Operation**");
-        System.out.println("**Press 7 for Booking Operation**");
-        System.out.println("**Press 8 for Cancelling Operation**");
-        System.out.println("**Press 9 for Tickets Operation**");
-        System.out.println("**Press 0 for Exit **");
-        System.out.print("What do you want to perform: ");
-        return num1.nextByte();
-    }
-    public static int get_number(){
-        Scanner num = new Scanner(System.in);
-            System.out.println("Following are the Actions:");
-            System.out.println("**Press 1 for add record**");
-            System.out.println("**Press 2 for delete record**");
-            System.out.println("**Press 3 for display record**");
-            System.out.println("**Press 4 for Search record**");
-            System.out.println("**Press 5 for Sort record**");
-            System.out.println("**Press 6 for edit record**");
-            System.out.println("**Press 0 for return to Main Menu**");
-            System.out.print("What do you want to perform: ");
-            return num.nextByte();
-    }
     public static void main(String[] args) {
         System.out.println("Hey! Welcome to Airline Management System.");
         Scanner o_num = new Scanner(System.in);
@@ -44,6 +15,7 @@ public class main_program {
         flight[] f = new flight[20];
         passenger[] p = new passenger[20];
         ticket[] t = new ticket[20];
+        allfunction func = new allfunction();
 
         // all indexes
         int arl = 0;
@@ -58,7 +30,7 @@ public class main_program {
 
         // Main Method
         while (true) {
-            int n = get_index();
+            int n = func.get_index();
             if (n == 0) {
                 System.out.println("Exiting Program...");
                 break;
@@ -69,7 +41,7 @@ public class main_program {
                         // Airline Operation
                         System.out.println("<-------Airline-------->");
                         while (true) {
-                            int id = get_number();
+                            int id = func.get_number();
                             if (id == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -90,33 +62,47 @@ public class main_program {
                                     case 2 -> {
                                         //delete record
                                         System.out.println("--------Deleting Record from Airline--------");
-                                        if (al[0] == null) {
-                                            System.out.println("...No Data Present to delete...");
-                                            break;
-                                        }
-                                        System.out.print("Write the Airline Code, You want to delete: ");
-                                        int code = o_num.nextInt();
-                                        boolean checker = false;
-                                        for (int i = 0; i < al.length; i++) {
-                                            if (al[i] == null) {
-                                                break;
-                                            }
-                                            if (al[i].getAR_code() == code) {
+                                        if (al[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Write the Airline Code, You want to delete: ");
+                                            int alcode = o_num.nextInt();
+                                            int posAl = func.binary_Search_num(al, arl-1, alcode);
+                                            if(posAl > 0) {
                                                 System.out.println("Record Deleted.");
-                                                for (int j = i;j< al.length;j++){
-                                                    if(al[j] == null){break;}
+                                                for (int j = posAl-1; j < arl; j++) {
                                                     al[j] = al[j+1];
                                                 }
-                                                checker = true;
                                                 arl--;
                                             }
-                                            if (checker) {
-                                                break;
-                                            }
                                         }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        }
+                                        // if (al[0] == null) {
+                                        //     System.out.println("...No Data Present to delete...");
+                                        //     break;
+                                        // }
+                                        // System.out.print("Write the Airline Code, You want to delete: ");
+                                        // int code = o_num.nextInt();
+                                        // boolean checker = false;
+                                        // for (int i = 0; i < al.length; i++) {
+                                        //     if (al[i] == null) {
+                                        //         break;
+                                        //     }
+                                        //     if (al[i].getAR_code() == code) {
+                                        //         System.out.println("Record Deleted.");
+                                        //         for (int j = i;j< al.length;j++){
+                                        //             if(al[j] == null){break;}
+                                        //             al[j] = al[j+1];
+                                        //         }
+                                        //         checker = true;
+                                        //         arl--;
+                                        //     }
+                                        //     if (checker) {
+                                        //         break;
+                                        //     }
+                                        // }
+                                        // if (!checker) {
+                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -136,45 +122,36 @@ public class main_program {
                                     case 4 -> {
                                         //Search Record by binary Search
                                         System.out.println("--------Searching Record from Airline--------");
-                                        if (al[0] == null) {
+                                        if (al[0] == null)
                                             System.out.println("...No Data Present in Record...");
-                                        }
                                         else {
                                             System.out.print("Enter Airline Code: ");
-                                            int arcode = sc.nextInt();
-                                            int beg, mid, end, pos=0;
-                                            beg = 0;
-                                            end = arl-1;
-                                            mid = (beg+end)/2;
-                                            while(beg<=end){
-                                                if(arcode == al[mid].getAR_code()){
-                                                    System.out.println("---------- RECORD FOUND --------------");
-                                                    System.out.print("Record Position is : ");
-                                                    System.out.println(mid+1);
-                                                    pos = 1;
-                                                    al[mid].display();
-                                                    break;
-                                                }
-                                                else if(arcode < al[mid].getAR_code()){
-                                                    end = mid-1;
-                                                    mid = (beg+end)/2;
-                                                }
-                                                else {
-                                                    beg = mid+1;
-                                                    mid = (beg+end)/2;
-                                                }
-                                            }
-                                            if(pos == 0)
-                                            System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            int alcode = o_num.nextInt();
+                                            int posAl = func.binary_Search_num(al, arl-1, alcode);
+                                            if(posAl > 0) {
+                                                System.out.println("Record position is: " + posAl);
+                                                al[posAl-1].display();
+                                            }  
                                         }
+                                        // int posAl = func.binary_Search_num(al, arl-1);
+                                        // if(posAl > 0){
+                                        //     System.out.println("Record position is: " + posAl);
+                                        //     al[posAl-1].display();
+                                        // }
+                                        // func.binary_Search_num(al, arl-1);
                                     }
                                     case 5 -> {
                                         //Sort Record
                                         System.out.println("--------Sorting Record from Airline--------");
+                                        func.quickSortNum(al, 0, arl-1);
+                                        System.out.println("--------Sorted Record to Airline--------");
                                     }
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Airline--------");
+                                        System.out.println("Enter the Airline Code you want to edit: ");
+                                        int arrcode = sc.nextInt();
+                                        
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -185,7 +162,7 @@ public class main_program {
                         // Airport Operation
                         System.out.println("<-------AirPort-------->");
                         while (true) {
-                            int apd = get_number();
+                            int apd = func.get_number();
                             if (apd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -210,34 +187,47 @@ public class main_program {
                                     case 2 -> {
                                         //delete record
                                         System.out.println("--------Deleting Record from Airport--------");
-                                        if (ap[0] == null) {
-                                            System.out.println("...No Data Present to delete...");
-                                            break;
-                                        }
-                                        System.out.print("Write the IATA Code, You want to delete: ");
-                                        String iata = sc_ap.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < ap.length; i++) {
-                                            if (ap[i] == null) {
-                                                continue;
-                                            }
-                                            if (ap[i].getIATA_code().equals(iata)) {
-                                                ap[i] = null;
+                                        if (ap[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Write the IATA Code, You want to delete: ");
+                                            String apcode = o_num.nextLine();
+                                            int posAp = func.binary_Search_Str(ap, arp-1, apcode);
+                                            if(posAp > 0) {
                                                 System.out.println("Record Deleted.");
-                                                for (int j = i;j< ap.length;j++){
-                                                    if(ap[j] == null){break;}
-                                                    ap[j] = ap[j+1];
+                                                for (int j = posAp; j < arp-1; j++) {
+                                                    al[j] = al[j+1];
                                                 }
-                                                checker = true;
-                                                arp--;
-                                            }
-                                            if (checker) {
-                                                break;
                                             }
                                         }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        }
+                                        // if (ap[0] == null) {
+                                        //     System.out.println("...No Data Present to delete...");
+                                        //     break;
+                                        // }
+                                        // System.out.print("Write the IATA Code, You want to delete: ");
+                                        // String iata = sc_ap.nextLine();
+                                        // boolean checker = false;
+                                        // for (int i = 0; i < ap.length; i++) {
+                                        //     if (ap[i] == null) {
+                                        //         continue;
+                                        //     }
+                                        //     if (ap[i].getIATA_code().equals(iata)) {
+                                        //         ap[i] = null;
+                                        //         System.out.println("Record Deleted.");
+                                        //         for (int j = i;j< ap.length;j++){
+                                        //             if(ap[j] == null){break;}
+                                        //             ap[j] = ap[j+1];
+                                        //         }
+                                        //         checker = true;
+                                        //         arp--;
+                                        //     }
+                                        //     if (checker) {
+                                        //         break;
+                                        //     }
+                                        // }
+                                        // if (!checker) {
+                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -255,38 +245,30 @@ public class main_program {
                                         }
                                     }
                                     case 4 -> {
-                                        //Search Record by linear search
+                                        //Search Record by binary search
                                         System.out.println("--------Searching Record From Airport--------");
-                                        if (ap[0] == null) {
+                                        if (ap[0] == null)
                                             System.out.println("...No Data Present in Record...");
-                                        }
                                         else {
-                                            int pos=0;
                                             System.out.print("Enter IATA Code: ");
-                                            String apcode = sc_ap.nextLine();
-                                            for (int i=0; i<ap.length; i++) {
-                                                if(ap[i] == null){
-                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                                    pos=1;
-                                                    break;
-                                                }
-                                                if(apcode.equals(ap[i].getIATA_code())){
-                                                    System.out.println("---------- RECORD FOUND --------------");
-                                                    System.out.print("Record Position is : ");
-                                                    System.out.println(i+1);
-                                                    ap[i].display();
-                                                    pos=1;
-                                                    break;
-                                                }
-                                            }
-                                            if(pos == 0){
-                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            }
+                                            String apcode = o_num.nextLine();
+                                            int posAp = func.binary_Search_Str(ap, arp-1, apcode);
+                                            if(posAp > 0) {
+                                                System.out.println("Record position is: " + posAp);
+                                                ap[posAp-1].display();
+                                            } 
                                         }
+                                        // int posAp = func.binary_Search_Str(ap, arp-1);
+                                        // if(posAp > 0){
+                                        //     System.out.println("Record position is: " + posAp);
+                                        //     ap[posAp-1].display();
+                                        // }
                                     }
                                     case 5 -> {
                                         //Sort Record
                                         System.out.println("--------Sorting Record From Airport--------");
+                                        func.quickSortStr(ap, 0, arp-1);
+                                        System.out.println("--------Sorted Record to Airport--------");
                                     }
                                     case 6 -> {
                                         //Edit Record
@@ -301,7 +283,7 @@ public class main_program {
                         //Flight Operation
                         System.out.println("<-------Flights-------->");
                         while (true) {
-                            int fd = get_number();
+                            int fd = func.get_number();
                             if (fd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -423,7 +405,7 @@ public class main_program {
                         //Connecting Flight Operation
                         System.out.println("<-------Connecting Flight------->");
                         while (true) {
-                            int cfd = get_number();
+                            int cfd = func.get_number();
                             if (cfd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -541,7 +523,7 @@ public class main_program {
                         //Employee Operation
                         System.out.println("<-------Employee------->");
                         while (true) {
-                            int ed = get_number();
+                            int ed = func.get_number();
                             if (ed == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -671,7 +653,7 @@ public class main_program {
                         //Passengers Operation
                         System.out.println("<-------Passenger------->");
                         while (true) {
-                            int pd = get_number();
+                            int pd = func.get_number();
                             if (pd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -797,7 +779,7 @@ public class main_program {
                         //Booking Operation
                         System.out.println("<-------Booking------->");
                         while (true) {
-                            int bkd = get_number();
+                            int bkd = func.get_number();
                             if (bkd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -915,7 +897,7 @@ public class main_program {
                         //Cancelling Operation
                         System.out.println("<-------Cancelling------->");
                         while (true) {
-                            int ccd = get_number();
+                            int ccd = func.get_number();
                             if (ccd == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
@@ -1033,7 +1015,7 @@ public class main_program {
                         //Tickets Operation
                         System.out.println("<-------Ticket------->");
                         while (true) {
-                            int td = get_number();
+                            int td = func.get_number();
                             if (td == 0) {
                                 System.out.println("Exiting Operation...");
                                 break;
