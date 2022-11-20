@@ -162,9 +162,10 @@ public class main_program {
                                             int posAp = func.binary_Search_AP(ap, arp-1, apcode);
                                             if(posAp > 0) {
                                                 System.out.println("Record Deleted.");
-                                                for (int j = posAp; j < arp-1; j++) {
-                                                    al[j] = al[j+1];
+                                                for (int j = posAp-1; j < arp; j++) {
+                                                    ap[j] = ap[j+1];
                                                 }
+                                                arp--;
                                             }
                                         }
                                     }
@@ -252,28 +253,36 @@ public class main_program {
                                         }
                                         System.out.print("Write the Flight Code, You want to delete: ");
                                         String f_code = sc_f.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < f.length; i++) {
-                                            if (f[i] == null) {
-                                                continue;
+                                        int posF = func.binary_Search_F(f, fr-1, f_code);
+                                        if(posF > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posF-1; j < fr; j++) {
+                                                f[j] = f[j+1];
                                             }
-                                            if (f[i].getFlight_code().equals(f_code)) {
-                                                f[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< f.length;j++){
-                                                    if(f[j] == null){break;}
-                                                    f[j] = f[j+1];
-                                                }
-                                                checker = true;
-                                                fr--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
+                                            fr--;
                                         }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        }
+                                        // boolean checker = false;
+                                        // for (int i = 0; i < f.length; i++) {
+                                        //     if (f[i] == null) {
+                                        //         continue;
+                                        //     }
+                                        //     if (f[i].getFlight_code().equals(f_code)) {
+                                        //         f[i] = null;
+                                        //         System.out.println("Record Deleted.");
+                                        //         for (int j = i;j< f.length;j++){
+                                        //             if(f[j] == null){break;}
+                                        //             f[j] = f[j+1];
+                                        //         }
+                                        //         checker = true;
+                                        //         fr--;
+                                        //     }
+                                        //     if (checker) {
+                                        //         break;
+                                        //     }
+                                        // }
+                                        // if (!checker) {
+                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -395,19 +404,40 @@ public class main_program {
                                         }
                                     }
                                     case 4 -> {
-                                        //Search Record by binary search
+                                        //Search Record by linear search
                                         System.out.println("--------Searching Record from Connecting Flights--------");
                                         if (cf[0] == null) {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            System.out.print("Enter Flight Code: ");
-                                            String cfcode = sc_cf.nextLine();
-                                            int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
-                                            if(posCf > 0) {
-                                                System.out.println("Record position is: " + posCf);
-                                                cf[posCf-1].display();
-                                            } 
+                                            int pos=0;
+                                            System.out.print("Enter Ticket Number: ");
+                                            String tcode = sc_cf.nextLine();
+                                            for (int i=0; i<t.length; i++) {
+                                                if(t[i] == null){
+                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                                    pos=1;
+                                                    break;
+                                                }
+                                                if(tcode.equals(t[i].getT_number())){
+                                                    System.out.println("---------- RECORD FOUND --------------");
+                                                    System.out.print("Record Position is : ");
+                                                    System.out.println(i+1);
+                                                    t[i].display();
+                                                    pos=1;
+                                                    break;
+                                                }
+                                            }
+                                            if(pos == 0){
+                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
+                                            }
+                                            // System.out.print("Enter Flight Code: ");
+                                            // String cfcode = sc_cf.nextLine();
+                                            // int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
+                                            // if(posCf > 0) {
+                                            //     System.out.println("Record position is: " + posCf);
+                                            //     cf[posCf-1].display();
+                                            // } 
                                         }
                                     }
                                     case 5 -> {
