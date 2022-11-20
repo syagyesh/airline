@@ -76,33 +76,6 @@ public class main_program {
                                                 arl--;
                                             }
                                         }
-                                        // if (al[0] == null) {
-                                        //     System.out.println("...No Data Present to delete...");
-                                        //     break;
-                                        // }
-                                        // System.out.print("Write the Airline Code, You want to delete: ");
-                                        // int code = o_num.nextInt();
-                                        // boolean checker = false;
-                                        // for (int i = 0; i < al.length; i++) {
-                                        //     if (al[i] == null) {
-                                        //         break;
-                                        //     }
-                                        //     if (al[i].getAR_code() == code) {
-                                        //         System.out.println("Record Deleted.");
-                                        //         for (int j = i;j< al.length;j++){
-                                        //             if(al[j] == null){break;}
-                                        //             al[j] = al[j+1];
-                                        //         }
-                                        //         checker = true;
-                                        //         arl--;
-                                        //     }
-                                        //     if (checker) {
-                                        //         break;
-                                        //     }
-                                        // }
-                                        // if (!checker) {
-                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -133,12 +106,6 @@ public class main_program {
                                                 al[posAl-1].display();
                                             }  
                                         }
-                                        // int posAl = func.binary_Search_num(al, arl-1);
-                                        // if(posAl > 0){
-                                        //     System.out.println("Record position is: " + posAl);
-                                        //     al[posAl-1].display();
-                                        // }
-                                        // func.binary_Search_num(al, arl-1);
                                     }
                                     case 5 -> {
                                         //Sort Record
@@ -200,34 +167,6 @@ public class main_program {
                                                 }
                                             }
                                         }
-                                        // if (ap[0] == null) {
-                                        //     System.out.println("...No Data Present to delete...");
-                                        //     break;
-                                        // }
-                                        // System.out.print("Write the IATA Code, You want to delete: ");
-                                        // String iata = sc_ap.nextLine();
-                                        // boolean checker = false;
-                                        // for (int i = 0; i < ap.length; i++) {
-                                        //     if (ap[i] == null) {
-                                        //         continue;
-                                        //     }
-                                        //     if (ap[i].getIATA_code().equals(iata)) {
-                                        //         ap[i] = null;
-                                        //         System.out.println("Record Deleted.");
-                                        //         for (int j = i;j< ap.length;j++){
-                                        //             if(ap[j] == null){break;}
-                                        //             ap[j] = ap[j+1];
-                                        //         }
-                                        //         checker = true;
-                                        //         arp--;
-                                        //     }
-                                        //     if (checker) {
-                                        //         break;
-                                        //     }
-                                        // }
-                                        // if (!checker) {
-                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -258,11 +197,6 @@ public class main_program {
                                                 ap[posAp-1].display();
                                             } 
                                         }
-                                        // int posAp = func.binary_Search_Str(ap, arp-1);
-                                        // if(posAp > 0){
-                                        //     System.out.println("Record position is: " + posAp);
-                                        //     ap[posAp-1].display();
-                                        // }
                                     }
                                     case 5 -> {
                                         //Sort Record
@@ -370,32 +304,6 @@ public class main_program {
                                                 f[posF-1].display();
                                             } 
                                         }
-                                        // if (f[0] == null) {
-                                        //     System.out.println("...No Data Present in Record...");
-                                        // }
-                                        // else {
-                                        //     int pos=0;
-                                        //     System.out.print("Enter Flight Code: ");
-                                        //     String fcode = sc_f.nextLine();
-                                        //     for (int i=0; i<f.length; i++) {
-                                        //         if(f[i] == null){
-                                        //             System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                        //             pos=1;
-                                        //             break;
-                                        //         }
-                                        //         if(fcode.equals(f[i].getFlight_code())){
-                                        //             System.out.println("---------- RECORD FOUND --------------");
-                                        //             System.out.print("Record Position is : ");
-                                        //             System.out.println(i+1);
-                                        //             f[i].display();
-                                        //             pos=1;
-                                        //             break;
-                                        //         }
-                                        //     }
-                                        //     if(pos == 0){
-                                        //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                        //     }
-                                        // }
                                     }
                                     case 5 -> {
                                         //Sort Record
@@ -493,7 +401,6 @@ public class main_program {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            // int pos=0;
                                             System.out.print("Enter Flight Code: ");
                                             String cfcode = sc_cf.nextLine();
                                             int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
@@ -501,24 +408,6 @@ public class main_program {
                                                 System.out.println("Record position is: " + posCf);
                                                 cf[posCf-1].display();
                                             } 
-                                        //     for (int i=0; i<cf.length; i++) {
-                                        //         if(cf[i] == null){
-                                        //             System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                        //             pos=1;
-                                        //             break;
-                                        //         }
-                                        //         if(cfcode.equals(cf[i].getFlight_code())){
-                                        //             System.out.println("---------- RECORD FOUND --------------");
-                                        //             System.out.print("Record Position is : ");
-                                        //             System.out.println(i+1);
-                                        //             f[i].display();
-                                        //             pos=1;
-                                        //             break;
-                                        //         }
-                                        //     }
-                                        //     if(pos == 0){
-                                        //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                        //     }
                                         }
                                     }
                                     case 5 -> {
@@ -629,7 +518,6 @@ public class main_program {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            // int pos=0;
                                             System.out.print("Enter SSN : ");
                                             String ecode = sc_e.nextLine();
                                             int posE = func.binary_Search_EE(e, er-1, ecode);
@@ -637,24 +525,6 @@ public class main_program {
                                                 System.out.println("Record position is: " + posE);
                                                 e[posE-1].display();
                                             } 
-                                            // for (int i=0; i<e.length; i++) {
-                                            //     if(e[i] == null){
-                                            //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            //     if(ecode.equals(e[i].getSSN())){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(i+1);
-                                            //         e[i].display();
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            // }
-                                            // if(pos == 0){
-                                            //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            // }
                                         }
                                     }
                                     case 5 -> {
@@ -761,7 +631,6 @@ public class main_program {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            // int pos=0;
                                             System.out.print("Enter Passport Number: ");
                                             String pcode = sc_p.nextLine();
                                             int posP = func.binary_Search_P(p, pr-1, pcode);
@@ -769,24 +638,6 @@ public class main_program {
                                                 System.out.println("Record position is: " + posP);
                                                 p[posP-1].display();
                                             } 
-                                            // for (int i=0; i<p.length; i++) {
-                                            //     if(p[i] == null){
-                                            //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            //     if(pcode.equals(p[i].getPassport_no())){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(i+1);
-                                            //         p[i].display();
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            // }
-                                            // if(pos == 0){
-                                            //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            // }
                                         }
                                     }
                                     case 5 -> {
@@ -885,7 +736,6 @@ public class main_program {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            // int pos=0;
                                             System.out.print("Enter Book ID: ");
                                             String bcode = sc_bk.nextLine();
                                             int posBk = func.binary_Search_BK(bk, brk-1, bcode);
@@ -893,24 +743,6 @@ public class main_program {
                                                 System.out.println("Record position is: " + posBk);
                                                 bk[posBk-1].display();
                                             } 
-                                            // for (int i=0; i<bk.length; i++) {
-                                            //     if(bk[i] == null){
-                                            //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            //     if(bcode.equals(bk[i].getBook_id())){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(i+1);
-                                            //         bk[i].display();
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            // }
-                                            // if(pos == 0){
-                                            //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            // }
                                         }
                                     }
                                     case 5 -> {
@@ -1009,7 +841,6 @@ public class main_program {
                                             System.out.println("...No Data Present in Record...");
                                         }
                                         else {
-                                            // int pos=0;
                                             System.out.print("Enter Cancel ID: ");
                                             String ccode = sc_cc.nextLine();
                                             int posCc = func.binary_Search_CC(cc, crc-1, ccode);
@@ -1017,24 +848,6 @@ public class main_program {
                                                 System.out.println("Record position is: " + posCc);
                                                 cc[posCc-1].display();
                                             } 
-                                            // for (int i=0; i<cc.length; i++) {
-                                            //     if(cc[i] == null){
-                                            //         System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            //     if(ccode.equals(cc[i].getCancel_id())){
-                                            //         System.out.println("---------- RECORD FOUND --------------");
-                                            //         System.out.print("Record Position is : ");
-                                            //         System.out.println(i+1);
-                                            //         cc[i].display();
-                                            //         pos=1;
-                                            //         break;
-                                            //     }
-                                            // }
-                                            // if(pos == 0){
-                                            //     System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            // }
                                         }
                                     }
                                     case 5 -> {

@@ -37,13 +37,6 @@ public class allfunction {
     }
 
     public int binary_Search_num(airline aal[], int alhigh, int alcode) {
-        // if (aal[0] == null) {
-        // System.out.println("...No Data Present in Record...");
-        // return -1;
-        // }
-        // else {
-        // System.out.print("Enter Airline Code: ");
-        // int alcode = functionSc.nextInt();
         int beg, mid, end, pos = 0;
         beg = 0;
         end = alhigh;
@@ -51,12 +44,8 @@ public class allfunction {
             mid = (beg + end) / 2;
             if (alcode == aal[mid].getAR_code()) {
                 System.out.println("---------- RECORD FOUND --------------");
-                // System.out.print("Record Position is : ");
-                // System.out.println(mid+1);
                 pos = 1;
                 return (mid + 1);
-                // aal[mid].display();
-                // break;
             } else if (alcode < aal[mid].getAR_code()) {
                 end = mid - 1;
             } else {
@@ -71,13 +60,6 @@ public class allfunction {
     }
 
     public int binary_Search_AP(airport aap[], int aphigh, String apcode) {
-        // if (aap[0] == null) {
-        // System.out.println("...No Data Present in Record...");
-        // return -1;
-        // }
-        // else {
-        // System.out.print("Enter IATA Code: ");
-        // String apcode = functionSc.nextLine();
         int beg, mid, end, pos = 0;
         beg = 0;
         end = aphigh;
