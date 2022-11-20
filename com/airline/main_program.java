@@ -367,7 +367,7 @@ public class main_program {
                                             int posF = func.binary_Search_F(f, fr-1, fcode);
                                             if(posF > 0) {
                                                 System.out.println("Record position is: " + posF);
-                                                ap[posF-1].display();
+                                                f[posF-1].display();
                                             } 
                                         }
                                         // if (f[0] == null) {
@@ -499,7 +499,7 @@ public class main_program {
                                             int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
                                             if(posCf > 0) {
                                                 System.out.println("Record position is: " + posCf);
-                                                ap[posCf-1].display();
+                                                cf[posCf-1].display();
                                             } 
                                         //     for (int i=0; i<cf.length; i++) {
                                         //         if(cf[i] == null){
@@ -635,7 +635,7 @@ public class main_program {
                                             int posE = func.binary_Search_EE(e, er-1, ecode);
                                             if(posE > 0) {
                                                 System.out.println("Record position is: " + posE);
-                                                ap[posE-1].display();
+                                                e[posE-1].display();
                                             } 
                                             // for (int i=0; i<e.length; i++) {
                                             //     if(e[i] == null){
@@ -767,7 +767,7 @@ public class main_program {
                                             int posP = func.binary_Search_P(p, pr-1, pcode);
                                             if(posP > 0) {
                                                 System.out.println("Record position is: " + posP);
-                                                ap[posP-1].display();
+                                                p[posP-1].display();
                                             } 
                                             // for (int i=0; i<p.length; i++) {
                                             //     if(p[i] == null){
@@ -891,7 +891,7 @@ public class main_program {
                                             int posBk = func.binary_Search_BK(bk, brk-1, bcode);
                                             if(posBk > 0) {
                                                 System.out.println("Record position is: " + posBk);
-                                                ap[posBk-1].display();
+                                                bk[posBk-1].display();
                                             } 
                                             // for (int i=0; i<bk.length; i++) {
                                             //     if(bk[i] == null){
@@ -1015,7 +1015,7 @@ public class main_program {
                                             int posCc = func.binary_Search_CC(cc, crc-1, ccode);
                                             if(posCc > 0) {
                                                 System.out.println("Record position is: " + posCc);
-                                                ap[posCc-1].display();
+                                                cc[posCc-1].display();
                                             } 
                                             // for (int i=0; i<cc.length; i++) {
                                             //     if(cc[i] == null){
