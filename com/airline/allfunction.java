@@ -3,14 +3,6 @@ package com.airline;
 import java.util.Scanner;
 
 public class allfunction{
-
-    generic<airline,airport> Al = new generic<>();
-    generic<airport,booking> AP = new generic<>();
-    generic<booking,cancelling> BK = new generic<>();
-    generic<cancelling,connecting_flight> CC = new generic<>();
-    generic<connecting_flight,employee> CF = new generic<>();
-
-
     Scanner functionSc = new Scanner(System.in);
     public int get_index(){
         Scanner num1 = new Scanner(System.in);
@@ -42,7 +34,7 @@ public class allfunction{
             return num.nextByte();
     }
 
-    public int binary_Search_num(AL.getInt() aal[], int alhigh, int alcode){
+    public int binary_Search_num(airline aal[], int alhigh, int alcode){
         // if (aal[0] == null) {
         //     System.out.println("...No Data Present in Record...");
         //     return -1;

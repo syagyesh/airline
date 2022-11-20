@@ -3,7 +3,7 @@ package com.airline;
 import java.util.Scanner;
 
 public class main_program {
-    public static void main(String[] args) {
+    public static <T> void main(String[] args) {
         System.out.println("Hey! Welcome to Airline Management System.");
         Scanner o_num = new Scanner(System.in);
         airline[] al = new airline[20];
@@ -16,6 +16,7 @@ public class main_program {
         passenger[] p = new passenger[20];
         ticket[] t = new ticket[20];
         allfunction func = new allfunction();
+        generic<T> daaa = new generic<>();
 
         // all indexes
         int arl = 0;
