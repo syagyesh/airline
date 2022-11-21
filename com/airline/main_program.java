@@ -67,7 +67,7 @@ public class main_program {
                                         else {
                                             System.out.print("Write the Airline Code, You want to delete: ");
                                             int alcode = o_num.nextInt();
-                                            int posAl = func.binary_Search_num(T <airline>, arl-1, alcode);
+                                            int posAl = func.binary_Search_num(al, arl-1, alcode);
                                             if(posAl > 0) {
                                                 System.out.println("Record Deleted.");
                                                 for (int j = posAl-1; j < arl; j++) {
