@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class main_program {
     public static void main(String[] args) {
-        System.out.println("\n\n\nHey! Welcome to Airline Management System.\n");
+        System.out.println("\n\nHey! Welcome to Airline Management System.\n");
         Scanner o_num = new Scanner(System.in);
         airline[] al = new airline[20];
         airport[] ap = new airport[20];
