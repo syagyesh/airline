@@ -116,9 +116,18 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Airline--------");
-                                        System.out.println("Enter the Airline Code you want to edit: ");
-                                        int arrcode = sc.nextInt();
-                                        
+                                        if (al[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.println("Enter the Airline Code you want to edit: ");
+                                            int arlcode = sc.nextInt();
+                                            int posofAl = func.binary_Search_num(al,arl-1,arlcode);
+                                            if(posofAl > 0) {
+                                                System.out.print("Enter Airline Name: ");
+                                                al[posofAl-1].setAR_name(sc.nextLine());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            } 
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -208,6 +217,22 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record From Airport--------");
+                                        if (ap[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter IATA Code: ");
+                                            String arpcode = sc_ap.nextLine();
+                                            int posofAp = func.binary_Search_AP(ap,arp-1,arpcode);
+                                            if(posofAp > 0) {
+                                                System.out.print("Enter Airport Name: ");
+                                                ap[posofAp-1].setAP_name(sc_ap.nextLine());
+                                                System.out.print("Enter Zip Code: ");
+                                                ap[posofAp-1].setZipcode(sc_ap.nextLine());
+                                                System.out.print("Enter City: ");
+                                                ap[posofAp-1].setCity(sc_ap.nextLine());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            } 
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -301,7 +326,26 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("---------Editing Record From Flights--------");
-
+                                        if (f[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Flight Code: ");
+                                            String frcode = sc_f.nextLine();
+                                            int posofF = func.binary_Search_F(f,fr-1,frcode);
+                                            if(posofF > 0) {
+                                                System.out.print("Enter Destination: ");
+                                                f[posofF-1].setDestination(sc_f.nextLine());
+                                                System.out.print("Enter Source: ");
+                                                f[posofF-1].setSource(sc_f.nextLine());
+                                                System.out.print("Enter Arrival Time (HH:MM:SS) : ");
+                                                f[posofF-1].setArrival(sc_f.nextLine());
+                                                System.out.print("Enter Departure Time (HH:MM:SS) : ");
+                                                f[posofF-1].setDeparture(sc_f.nextLine());
+                                                System.out.print("Enter Journey Type: ");
+                                                f[posofF-1].setJourney_type(sc_f.nextLine());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            } 
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -401,7 +445,20 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Connecting Flights--------");
-
+                                        if (f[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Flight Code: ");
+                                            String cfcode = sc_cf.nextLine();
+                                            int posofCf = func.binary_Search_CF(cf,crf-1,cfcode);
+                                            if(posofCf > 0) {
+                                                System.out.print("Enter Number of Stops: ");
+                                                cf[posofCf-1].setNo_of_stops(o_num.nextInt());
+                                                System.out.print("Enter Stay Time (HH:MM:SS) : ");
+                                                cf[posofCf-1].setStay_time(sc_cf.nextLine());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -504,7 +561,34 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Employee--------");
-
+                                        if (e[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter SSN: ");
+                                            String ecode = sc_e.nextLine();
+                                            int posofE = func.binary_Search_EE(e,er-1,ecode);
+                                            if(posofE > 0) {
+                                                System.out.print("Enter First Name: ");
+                                                e[posofE-1].setE_fname(sc_e.nextLine());
+                                                System.out.print("Enter Last Name: ");
+                                                e[posofE-1].setE_lname(sc_e.nextLine());
+                                                System.out.print("Enter Gender: ");
+                                                e[posofE-1].setE_gender(sc_e.nextLine());
+                                                System.out.print("Enter Mobile Number: ");
+                                                e[posofE-1].setE_mobile(sc_e.nextLine());
+                                                System.out.print("Enter Address: ");
+                                                e[posofE-1].setE_address(sc_e.nextLine());
+                                                System.out.print("Enter City: ");
+                                                e[posofE-1].setE_city(sc_e.nextLine());
+                                                System.out.print("Enter Employee Type: ");
+                                                e[posofE-1].setE_type(sc_e.nextLine());
+                                                System.out.print("Enter Employee Age: ");
+                                                e[posofE-1].setE_age(o_num.nextInt());
+                                                System.out.print("Enter Employee Salary: ");
+                                                e[posofE-1].setE_salary(o_num.nextInt());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -603,7 +687,30 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Passenger--------");
-
+                                        if (p[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Passport Number: ");
+                                            String pcode = sc_p.nextLine();
+                                            int posofP = func.binary_Search_P(p,pr-1,pcode);
+                                            if(posofP > 0) {
+                                                System.out.print("Enter First Name: ");
+                                                p[posofP-1].setP_fname(sc_p.nextLine());
+                                                System.out.print("Enter Last Name: ");
+                                                p[posofP-1].setP_lname(sc_p.nextLine());
+                                                System.out.print("Enter Gender: ");
+                                                p[posofP-1].setP_gender(sc_p.nextLine());
+                                                System.out.print("Enter Mobile Number: ");
+                                                p[posofP-1].setP_mobile(sc_p.nextLine());
+                                                System.out.print("Enter Address: ");
+                                                p[posofP-1].setP_address(sc_p.nextLine());
+                                                System.out.print("Enter City: ");
+                                                p[posofP-1].setP_city(sc_p.nextLine());
+                                                System.out.print("Enter Passenger Age: ");
+                                                p[posofP-1].setP_age(o_num.nextInt());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -694,7 +801,22 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Booking--------");
-
+                                        if (bk[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Book ID: ");
+                                            String bkcode = sc_bk.nextLine();
+                                            int posofBk = func.binary_Search_BK(bk,brk-1,bkcode);
+                                            if(posofBk > 0) {
+                                                System.out.print("Enter Book Date (YYYY/MM/DD) : ");
+                                                bk[posofBk-1].setBook_date(sc_bk.nextLine());
+                                                System.out.print("Enter Flight Status: ");
+                                                bk[posofBk-1].setStatus(sc_bk.nextLine());
+                                                System.out.print("Enter Number Of Tickets: ");
+                                                bk[posofBk-1].setNo_of_tickets(o_num.nextInt());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -785,7 +907,22 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Cancelling--------");
-
+                                        if (cc[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Cancel ID: ");
+                                            String cccode = sc_cc.nextLine();
+                                            int posofCc = func.binary_Search_CC(cc,crc-1,cccode);
+                                            if(posofCc > 0) {
+                                                System.out.print("Enter Cancel Date (YYYY/MM/DD) : ");
+                                                cc[posofCc-1].setCancel_date(sc_cc.nextLine());
+                                                System.out.print("Enter Book ID: ");
+                                                cc[posofCc-1].setBook_id(sc_cc.nextLine());
+                                                System.out.print("Enter Surcharge: ");
+                                                cc[posofCc-1].setSurcharge(o_num.nextInt());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
@@ -898,7 +1035,30 @@ public class main_program {
                                     case 6 -> {
                                         //Edit Record
                                         System.out.println("--------Editing Record from Ticket--------");
-
+                                        if (t[0] == null)
+                                            System.out.println("...No Data Present in Record...");
+                                        else {
+                                            System.out.print("Enter Ticket Number: ");
+                                            String tcode = sc_t.nextLine();
+                                            int posofT = func.binary_Search_T(t,tr-1,tcode);
+                                            if(posofT > 0) {
+                                                System.out.print("Enter Class: ");
+                                                t[posofT-1].setClass(sc_t.nextLine());
+                                                System.out.print("Enter Passport No: ");
+                                                t[posofT-1].setPassport_no(sc_t.nextLine());
+                                                System.out.print("Enter Travel Date (YYYY/MM/DD) : ");
+                                                t[posofT-1].setTravel_date(sc_t.nextLine());
+                                                System.out.print("Enter Flight Code: ");
+                                                t[posofT-1].setFlight_code(sc_t.nextLine());
+                                                System.out.print("Enter Seat Number: ");
+                                                t[posofT-1].setSeat_no(o_num.nextInt());
+                                                System.out.print("Enter Price: ");
+                                                t[posofT-1].setPrice(o_num.nextInt());
+                                                System.out.print("Enter Airline Code: ");
+                                                t[posofT-1].setAR_code(o_num.nextInt());
+                                                System.out.println("---------------** SuccessFully Edited **-----------------");
+                                            }
+                                        }
                                     }
                                     default -> System.out.println("Try Again With Correct Input...");
                                 }
