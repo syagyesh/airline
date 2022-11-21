@@ -261,28 +261,6 @@ public class main_program {
                                             }
                                             fr--;
                                         }
-                                        // boolean checker = false;
-                                        // for (int i = 0; i < f.length; i++) {
-                                        //     if (f[i] == null) {
-                                        //         continue;
-                                        //     }
-                                        //     if (f[i].getFlight_code().equals(f_code)) {
-                                        //         f[i] = null;
-                                        //         System.out.println("Record Deleted.");
-                                        //         for (int j = i;j< f.length;j++){
-                                        //             if(f[j] == null){break;}
-                                        //             f[j] = f[j+1];
-                                        //         }
-                                        //         checker = true;
-                                        //         fr--;
-                                        //     }
-                                        //     if (checker) {
-                                        //         break;
-                                        //     }
-                                        // }
-                                        // if (!checker) {
-                                        //     System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
-                                        // }
                                     }
                                     case 3 -> {
                                         //display record
@@ -406,38 +384,12 @@ public class main_program {
                                     case 4 -> {
                                         //Search Record by linear search
                                         System.out.println("--------Searching Record from Connecting Flights--------");
-                                        if (cf[0] == null) {
-                                            System.out.println("...No Data Present in Record...");
-                                        }
-                                        else {
-                                            int pos=0;
-                                            System.out.print("Enter Ticket Number: ");
-                                            String tcode = sc_cf.nextLine();
-                                            for (int i=0; i<t.length; i++) {
-                                                if(t[i] == null){
-                                                    System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                                    pos=1;
-                                                    break;
-                                                }
-                                                if(tcode.equals(t[i].getT_number())){
-                                                    System.out.println("---------- RECORD FOUND --------------");
-                                                    System.out.print("Record Position is : ");
-                                                    System.out.println(i+1);
-                                                    t[i].display();
-                                                    pos=1;
-                                                    break;
-                                                }
-                                            }
-                                            if(pos == 0){
-                                                System.out.println("----------- RECORD IS NOT PRESENT ---------");
-                                            }
-                                            // System.out.print("Enter Flight Code: ");
-                                            // String cfcode = sc_cf.nextLine();
-                                            // int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
-                                            // if(posCf > 0) {
-                                            //     System.out.println("Record position is: " + posCf);
-                                            //     cf[posCf-1].display();
-                                            // } 
+                                        System.out.print("Enter Flight Code: ");
+                                        String cfcode = sc_cf.nextLine();
+                                        int posCf = func.binary_Search_CF(cf, crf-1, cfcode);
+                                        if(posCf > 0) {
+                                            System.out.println("Record position is: " + posCf);
+                                            cf[posCf-1].display();    
                                         }
                                     }
                                     case 5 -> {
@@ -503,27 +455,13 @@ public class main_program {
                                         }
                                         System.out.print("Write the SSN Number, You want to delete: ");
                                         String e_code = sc_e.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < e.length; i++) {
-                                            if (e[i] == null) {
-                                                continue;
+                                        int posE = func.binary_Search_EE(e, er-1, e_code);
+                                        if(posE > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posE-1; j < er; j++) {
+                                                e[j] = e[j+1];
                                             }
-                                            if (e[i].getSSN().equals(e_code)) {
-                                                e[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< e.length;j++){
-                                                    if(e[j] == null){break;}
-                                                    e[j] = e[j+1];
-                                                }
-                                                checker = true;
-                                                er--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
-                                        }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                            er--;
                                         }
                                     }
                                     case 3 -> {
@@ -616,27 +554,13 @@ public class main_program {
                                         }
                                         System.out.print("Write the Passport Number, You want to delete: ");
                                         String p_code = sc_p.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < p.length; i++) {
-                                            if (p[i] == null) {
-                                                continue;
+                                        int posP = func.binary_Search_P(p, pr-1, p_code);
+                                        if(posP > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posP-1; j < pr; j++) {
+                                                p[j] = p[j+1];
                                             }
-                                            if (p[i].getPassport_no().equals(p_code)) {
-                                                p[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< p.length;j++){
-                                                    if(p[j] == null){break;}
-                                                    p[j] = p[j+1];
-                                                }
-                                                checker = true;
-                                                pr--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
-                                        }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                            pr--;
                                         }
                                     }
                                     case 3 -> {
@@ -721,27 +645,13 @@ public class main_program {
                                         }
                                         System.out.print("Write the Book ID, You want to delete: ");
                                         String bk_code = sc_bk.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < bk.length; i++) {
-                                            if (bk[i] == null) {
-                                                continue;
+                                        int posBk = func.binary_Search_BK(bk, brk-1, bk_code);
+                                        if(posBk > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posBk-1; j < brk; j++) {
+                                                bk[j] = bk[j+1];
                                             }
-                                            if (bk[i].getBook_id().equals(bk_code)) {
-                                                bk[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< bk.length;j++){
-                                                    if(bk[j] == null){break;}
-                                                    bk[j] = bk[j+1];
-                                                }
-                                                checker = true;
-                                                brk--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
-                                        }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                            brk--;
                                         }
                                     }
                                     case 3 -> {
@@ -826,27 +736,13 @@ public class main_program {
                                         }
                                         System.out.print("Write the Cancel ID, You want to delete: ");
                                         String cc_code = sc_cc.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < cc.length; i++) {
-                                            if (cc[i] == null) {
-                                                continue;
+                                        int posCC = func.binary_Search_CC(cc, crc-1, cc_code);
+                                        if(posCC > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posCC-1; j < crc; j++) {
+                                                cc[j] = cc[j+1];
                                             }
-                                            if (cc[i].getCancel_date().equals(cc_code)) {
-                                                cc[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< cc.length;j++){
-                                                    if(cc[j] == null){break;}
-                                                    cc[j] = cc[j+1];
-                                                }
-                                                checker = true;
-                                                crc--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
-                                        }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                            crc--;
                                         }
                                     }
                                     case 3 -> {
@@ -939,27 +835,13 @@ public class main_program {
                                         }
                                         System.out.print("Write the Ticket Number, You want to delete: ");
                                         String t_code = sc_t.nextLine();
-                                        boolean checker = false;
-                                        for (int i = 0; i < t.length; i++) {
-                                            if (t[i] == null) {
-                                                continue;
+                                        int posT = func.binary_Search_T(t, tr-1, t_code);
+                                        if(posT > 0) {
+                                            System.out.println("Record Deleted.");
+                                            for (int j = posT-1; j < tr; j++) {
+                                                t[j] = t[j+1];
                                             }
-                                            if (t[i].getT_number().equals(t_code)) {
-                                                t[i] = null;
-                                                System.out.println("Record Deleted.");
-                                                for (int j = i;j< t.length;j++){
-                                                    if(t[j] == null){break;}
-                                                    t[j] = t[j+1];
-                                                }
-                                                checker = true;
-                                                tr--;
-                                            }
-                                            if (checker) {
-                                                break;
-                                            }
-                                        }
-                                        if (!checker) {
-                                            System.out.print("The given record is not in data. Try Again By Choosing Operation:  ");
+                                            tr--;
                                         }
                                     }
                                     case 3 -> {
